@@ -1,0 +1,80 @@
+\newcommand{\labtitle}{ECE/CS 5710/6710 - Lab Introduction}
+%\newcommand{\labdate}{}
+\newcommand{\labsubtitle}{Introductions to the Labs}
+\vlsiheader
+
+\section{Assignments Deadlines}
+The pre-lab report have to be submitted through Canvas as a \textcolor{red}{\textbf{.pdf}} file on Monday at 12pm (noon), the same week of the lab. \newline
+The lab report have to be submitted through Canvas as a \textcolor{red}{\textbf{.pdf}} file on Sunday at 11.59pm, the same week of the lab.
+
+\section{Lab Schedule}
+You will be guided through the tools through complete lab manuals and you will receive the aid of the TA in the labs and project (\textbf{every week, the TAs will be available at least one hour every day of the week to answer your questions - check out their hours on Canvas}). However, there is no specific lab class that you are required to attend. You can perform the labs and your project at your own convenience, either in the CADE lab at the University, or across the network. Remember that nothing can replace taking the time to read the CAD tool documentation. The lab activities for the semester will be as follows: 
+	\begin{itemize}	
+	\item Lab 1: CMOS Inverter - Schematic and Circuit Simulation
+	\item Lab 2: CMOS Inverter - Physical Design
+	\item Lab 3: Design and Characterization of a D Flip-Flop
+	\item Lab 4: Logic Synthesis and Front-end Flow
+	\item Lab 5: Floorplanning and Back-end Flow
+	\item Project
+	\end{itemize} 	
+
+\section{CADE Machine and CAD Tools Setup}
+\begin{enumerate}
+	\item For the labs, since you are using Windows machines, you need to connect to the CADE lab machines via remote access. If this is your first time connecting to the CADE machines, follow the tutorial here: \textcolor{blue}{\href{https://www.cade.utah.edu/faqs/do-you-have-instructions-on-using-nxnomachine/}{CADE Lab Remote Access}.}
+	\item Once connected to the CADE machine, you will need several files and scripts to properly setup the CADE tools using the Skywater 130nm design kit. The first step to setup the tools automatically is to modify the startup script for the shell you are using. Go to your home directory and open the appropriate shell startup file (note that those files start with a dot so you need to run $ls -a$ to see them) with a text editor such as gedit or vi (or create it if the file does not exist):
+	\begin{itemize}	
+		\item .tcshrc – startup for the tcsh shell (used by default on the CADE machines),
+		\item .cshrc – startup for the csh shell,
+		\item .bashrc – startup for the bash shell.
+	\end{itemize} 	
+	Add the following line to the $.tcshrc$ (if you use the default shell) file: 
+	\begin{codeline}
+		source /research/ece/lnis-teaching/5710$\_$6710$\_$F21/tool$\_$paths.sh
+	%setenv base\_dir ``/uusoc/facility/cad\_tools/Cadence"
+
+   % setenv CDS   \$base\_dir/IC6-F15\\
+
+  %  \#Setup the path for shared libraries\\
+
+   % if (`uname -m' == ``x86\_64") then
+
+   % \qquad setenv LD\_LIBRARY\_PATH \$CDS/tools/lib/64bit
+
+   % else
+
+   % \qquad  setenv LD\_LIBRARY\_PATH \$CDS/tools/lib/32bit
+
+  %  endif
+%		\vspace{+1mm}
+	\end{codeline}
+%		\vspace{+1mm}
+	\begin{warning}
+		Please check that your shell startup file does not contain commands from previous files (such as other path definition) since it could cause conflicts with the EDA tools. If it does, remove those commands.
+	\end{warning} 
+
+	\item Clone the Skywater 130nm template from the lnis-uofu Github repository. This will be your working directory. This repository should have everything setup to use all the tools for this class.
+
+	\begin{codeline}
+	git clone https://github.com/lnis-uofu/skywater$\_$template.git
+	\end{codeline}
+
+	\item Go to the directory you just created by running the following command:
+	\begin{codeline}
+	cd skywater$\_$template
+	\end{codeline}
+
+	\item Run the following command to configure the folder structure:
+	\begin{codeline}
+	./setup.sh
+	\end{codeline}
+\end{enumerate}
+		\vspace{+1mm}
+
+\begin{remark}
+If everything is correctly set up:
+	\begin{itemize}
+		\item \textit{./start$\_$virtuoso} will run the setup script and launch Virtuoso preconfigured with the Skywater 130\emph{nm} design kit.
+		\item \textit{innovus} starts the Cadence Innovus tool.
+		\item \textit{vsim} will launch the Modelsim (Questa Sim) tool.
+	\end{itemize} 
+\end{remark}

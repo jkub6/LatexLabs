@@ -1,0 +1,102 @@
+
+
+\documentclass[11pt,fleqn,twoside]{article} % Default font size and left-justified equations
+
+\usepackage{blindtext}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\input{structure.tex} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\usepackage{float}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{calc}
+
+\usepackage{textcomp}
+% Allows for C-language syntax highlighting on code environments
+\usepackage{listings} 
+
+
+\lstset
+{ 
+    language=C,
+    basicstyle=\ttfamily,
+    columns=fullflexible,
+    keepspaces=true,
+    numbers=none,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    keywordstyle=\color{blue!80!black},
+    stringstyle=\color{red!80!black},
+    commentstyle=\color{green!40!black},
+    morecomment=[l][\color{magenta!80!black}]{\#}
+}
+
+\usepackage{caption}
+\captionsetup[figure]{font=small,skip=10pt}
+
+%\usepackage{enumitem}
+%\setlist{noitemsep} % or \setlist{noitemsep} to leave space around whole list
+
+%%%%% May be too harsh to prevent paragraph breaks across pages! 
+%\interlinepenalty 10000
+\widowpenalties 1 10000
+\raggedbottom
+
+% Single-line inline code block, argument is code/text to display
+\newcommand{\ilcode}[1]{
+    \smallskip
+    \colorbox{gray!20!white}{
+        \centering
+        \parbox{\linewidth-2\fboxsep}{
+            \lstinline@#1@
+        }
+    }
+}
+
+
+\newcommand*{\img}[1]{%
+	\raisebox{-.3\baselineskip}{%
+		\includegraphics[
+		height=\baselineskip,
+		width=\baselineskip,
+		keepaspectratio,
+		]{#1}%
+	}%
+}
+
+
+
+\usepackage{titlesec}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{silence} % http://ctan.org/pkg/silence
+\ErrorFilter{textcomp}{Symbol \textrightarrow not provided}
+
+
+% Uncomment to disable paragraph indentation globally 
+%\setlength{\parindent}{0pt}
+
+
+% Manually adjust chapter counter if using separate files for each lab, will increment with each chapter command
+%\setcounter{chapter}{2}  %start chapter at 0 (introduction)
+\setcounter{secnumdepth}{5}%allow subsubsection until 5 levels of deepness
+\begin{document}
+
+%input{Introduction.tex}
+%\input{Lab1.tex}
+%\input{Lab2.tex}
+\input{Lab3.tex}
+
+%\input{Lab4.tex}
+%\input{Lab5.tex}
+%\input{Modelsim_tutorial.tex}
+
+
+\end{document}
